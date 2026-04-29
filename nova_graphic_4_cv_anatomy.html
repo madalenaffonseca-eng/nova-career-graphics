@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic 4 — CV Anatomy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .mock-cv {
+    background: #fff;
+    border: 0.5px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .cv-name {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 1.5px solid #D4007F;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  .cv-contact {
+    font-size: 9px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .cv-section { margin-bottom: 10px; }
+
+  .cv-section-title {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #D4007F;
+    border-bottom: 0.5px solid #f799d0;
+    padding-bottom: 3px;
+    margin-bottom: 6px;
+  }
+
+  .cv-entry { margin-bottom: 7px; }
+
+  .cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .cv-entry-sub {
+    font-size: 9px;
+    color: #888;
+    margin-bottom: 3px;
+  }
+
+  .cv-bullet {
+    font-size: 9px;
+    color: #555;
+    padding-left: 10px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .cv-bullet::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: #D4007F;
+  }
+
+  .zone { position: relative; }
+  .zone::before {
+    content: '';
+    position: absolute;
+    inset: -3px -6px;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+
+  .zone-a::before { background: rgba(212,0,127,0.04); border: 1px dashed rgba(212,0,127,0.3); }
+  .zone-b::before { background: rgba(212,0,127,0.04); border: 1px dashed rgba(212,0,127,0.2); }
+  .zone-c::before { background: rgba(0,0,0,0.02); border: 1px dashed rgba(0,0,0,0.15); }
+
+  .annotations { display: flex; flex-direction: column; gap: 14px; }
+
+  .annotation { display: flex; gap: 12px; align-items: flex-start; }
+
+  .ann-marker {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 1px;
+    background: #D4007F;
+  }
+
+  .ann-marker.dark { background: #000; }
+
+  .ann-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2px;
+  }
+
+  .ann-text {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .ann-good {
+    font-size: 10px;
+    font-weight: 500;
+    color: #2a7a2a;
+    background: #eaf5ea;
+    border-radius: 4px;
+    padding: 2px 7px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  .ann-bad {
+    font-size: 10px;
+    font-weight: 500;
+    color: #a3005f;
+    background: #fce6f3;
+    border-radius: 4px;
+    padding: 2px 7px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="label">CV structure — what goes where</div>
+
+<div class="layout">
+  <div class="mock-cv">
+    <div class="cv-name">Ana Rodrigues</div>
+    <div class="cv-contact">ana.rodrigues@email.com · LinkedIn · Lisbon, Portugal</div>
+
+    <div class="cv-section zone zone-a">
+      <div class="cv-section-title">Education</div>
+      <div class="cv-entry">
+        <div class="cv-entry-header"><span>Nova SBE</span><span>2023–2025</span></div>
+        <div class="cv-entry-sub">MSc Management · GPA 17.2/20</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-entry-header"><span>Universidade do Porto</span><span>2020–2023</span></div>
+        <div class="cv-entry-sub">BSc Economics</div>
+      </div>
+    </div>
+
+    <div class="cv-section zone zone-b">
+      <div class="cv-section-title">Experience</div>
+      <div class="cv-entry">
+        <div class="cv-entry-header"><span>EY — Consulting Intern</span><span>Jun–Sep 2024</span></div>
+        <div class="cv-entry-sub">Lisbon</div>
+        <div class="cv-bullet">Modelled three market-entry scenarios for a retail client, reducing analysis time by 30%</div>
+        <div class="cv-bullet">Presented findings directly to engagement manager; incorporated into final client deliverable</div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-entry-header"><span>Nova SBE Consulting Club</span><span>2023–2024</span></div>
+        <div class="cv-entry-sub">Case Coach</div>
+        <div class="cv-bullet">Coached 12 first-year students through structured case preparation over two semesters</div>
+      </div>
+    </div>
+
+    <div class="cv-section zone zone-c">
+      <div class="cv-section-title">Skills &amp; Languages</div>
+      <div class="cv-bullet">Portuguese (native) · English (fluent) · Spanish (working)</div>
+      <div class="cv-bullet">Excel, Python (data analysis), PowerPoint</div>
+    </div>
+  </div>
+
+  <div class="annotations">
+    <div class="annotation">
+      <div class="ann-marker">A</div>
+      <div class="ann-body">
+        <div class="ann-title">Education</div>
+        <div class="ann-text">Most recent first. Include GPA only if it strengthens your application — typically above 15/20 on a Portuguese scale.</div>
+        <span class="ann-good">Include: degree, institution, dates, GPA if strong</span>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <div class="ann-marker">B</div>
+      <div class="ann-body">
+        <div class="ann-title">Experience bullets</div>
+        <div class="ann-text">Show what you did, the scale or context, and a result. Avoid vague phrases like "assisted with" or "supported the team."</div>
+        <span class="ann-bad">Avoid: "Helped with analysis and presentations"</span>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <div class="ann-marker dark">C</div>
+      <div class="ann-body">
+        <div class="ann-title">Skills</div>
+        <div class="ann-text">Keep it factual and brief. Don't list skills you couldn't be tested on in an interview.</div>
+        <span class="ann-good">Include: languages with level, software you use regularly</span>
+      </div>
+    </div>
+
+    <div class="annotation">
+      <div class="ann-marker dark">D</div>
+      <div class="ann-body">
+        <div class="ann-title">Length and format</div>
+        <div class="ann-text">One page for students and recent graduates. No photos, no graphics, no colour unless you are in a creative field.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function resizeIframe() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+</script>
+</body>
+</html>

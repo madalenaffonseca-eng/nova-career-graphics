@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic 2 — Comparison Grid</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 140px repeat(3, 1fr);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 0.5px solid #e0e0e0;
+    font-size: 12px;
+  }
+
+  .cell {
+    padding: 11px 13px;
+    border-bottom: 0.5px solid #e8e8e4;
+    border-right: 0.5px solid #e8e8e4;
+    line-height: 1.4;
+  }
+
+  .cell:nth-child(4n) { border-right: none; }
+  .row-last .cell { border-bottom: none; }
+
+  .col-header {
+    background: #D4007F;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    padding: 13px;
+    border-right: 0.5px solid rgba(255,255,255,0.2);
+  }
+
+  .col-header:last-child { border-right: none; }
+  .corner { background: #a3005f; }
+
+  .row-header {
+    background: #f9f9f9;
+    font-weight: 600;
+    font-size: 11px;
+    color: #D4007F;
+    display: flex;
+    align-items: center;
+  }
+
+  .data {
+    background: #fff;
+    color: #444;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .data.alt { background: #fafaf8; }
+
+  .dots { display: flex; gap: 4px; justify-content: center; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.on { background: #D4007F; }
+  .dot.off { background: #e0e0e0; }
+
+  .chip {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .chip-high { background: #fce6f3; color: #a3005f; border: 0.5px solid #f799d0; }
+  .chip-med { background: #f5f5f5; color: #444; border: 0.5px solid #ddd; }
+
+  .footnote {
+    font-size: 10px;
+    color: #aaa;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 90px repeat(3, 1fr); font-size: 11px; }
+    .col-header { font-size: 10px; padding: 8px 6px; }
+    .cell { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="label">Types of consulting firm — at a glance</div>
+
+<div class="grid">
+  <div class="cell col-header corner"></div>
+  <div class="cell col-header">Strategy (MBB)</div>
+  <div class="cell col-header">Big Four</div>
+  <div class="cell col-header">Boutique</div>
+
+  <div class="cell row-header">Selectivity</div>
+  <div class="cell data"><span class="chip chip-high">Very high</span></div>
+  <div class="cell data"><span class="chip chip-med">High</span></div>
+  <div class="cell data"><span class="chip chip-med">Varies</span></div>
+
+  <div class="cell row-header">Hiring volume</div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot off"></div><div class="dot off"></div></div></div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot off"></div><div class="dot off"></div></div></div>
+
+  <div class="cell row-header">Type of work</div>
+  <div class="cell data">Senior strategy</div>
+  <div class="cell data">Strategy to implementation</div>
+  <div class="cell data">Sector-specific</div>
+
+  <div class="cell row-header">Client exposure</div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div></div></div>
+  <div class="cell data alt"><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div></div></div>
+
+  <div class="cell row-header">Case interview</div>
+  <div class="cell data">Always</div>
+  <div class="cell data">Usually</div>
+  <div class="cell data">Often not</div>
+
+  <div class="cell row-header row-last">Entry role (masters)</div>
+  <div class="cell data row-last">Associate</div>
+  <div class="cell data row-last">Consultant</div>
+  <div class="cell data row-last">Analyst / Consultant</div>
+</div>
+
+<div class="footnote">Hiring volumes and selectivity are approximate and vary by year and office location.</div>
+
+<script>
+  function resizeIframe() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+</script>
+</body>
+</html>

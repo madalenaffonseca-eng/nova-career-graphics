@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic 5 — At a Glance Card</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .card-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #D4007F;
+    margin-bottom: 6px;
+  }
+
+  .card-title {
+    font-size: 22px;
+    font-weight: 300;
+    font-family: Georgia, serif;
+    color: #000;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    border-bottom: 2px solid #D4007F;
+    padding-bottom: 14px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .card-stat {
+    background: #fce6f3;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+
+  .stat-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .divider {
+    height: 0.5px;
+    background: #e8e8e8;
+    margin: 0 0 18px;
+  }
+
+  .tags-section { margin-bottom: 18px; }
+
+  .tags-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #fce6f3;
+    color: #D4007F;
+    border: 0.5px solid #f799d0;
+  }
+
+  .row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .info-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 8px;
+  }
+
+  .info-item {
+    font-size: 12px;
+    color: #333;
+    padding: 4px 0;
+    border-bottom: 0.5px solid #f0f0f0;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-item:last-child { border-bottom: none; }
+
+  .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #D4007F;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr 1fr; }
+    .row-2col { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-eyebrow">Sector brief</div>
+  <div class="card-title">Investment Banking</div>
+
+  <div class="card-grid">
+    <div class="card-stat">
+      <div class="stat-value">Oct–Nov</div>
+      <div class="stat-label">Application window (graduate)</div>
+    </div>
+    <div class="card-stat">
+      <div class="stat-value">Analyst</div>
+      <div class="stat-label">Typical entry role (undergrad)</div>
+    </div>
+    <div class="card-stat">
+      <div class="stat-value">Associate</div>
+      <div class="stat-label">Typical entry role (masters)</div>
+    </div>
+  </div>
+
+  <div class="tags-section">
+    <div class="tags-label">Key application stages</div>
+    <div class="tags">
+      <span class="tag">CV + cover letter</span>
+      <span class="tag">HireVue video</span>
+      <span class="tag">Online tests</span>
+      <span class="tag">Assessment centre</span>
+      <span class="tag">Superday interviews</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="row-2col">
+    <div class="info-block">
+      <div class="info-label">Key firms recruiting in Portugal</div>
+      <div class="info-item"><span class="dot"></span>Goldman Sachs</div>
+      <div class="info-item"><span class="dot"></span>JPMorgan</div>
+      <div class="info-item"><span class="dot"></span>Morgan Stanley</div>
+      <div class="info-item"><span class="dot"></span>BNP Paribas</div>
+      <div class="info-item"><span class="dot"></span>Millennium BCP (domestic)</div>
+    </div>
+    <div class="info-block">
+      <div class="info-label">What firms look for</div>
+      <div class="info-item"><span class="dot"></span>Numerical and analytical ability</div>
+      <div class="info-item"><span class="dot"></span>Commercial awareness</div>
+      <div class="info-item"><span class="dot"></span>Resilience and work ethic</div>
+      <div class="info-item"><span class="dot"></span>Attention to detail</div>
+      <div class="info-item"><span class="dot"></span>Motivation for the sector</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function resizeIframe() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+</script>
+</body>
+</html>

@@ -103,6 +103,19 @@
     margin-top: 10px;
     line-height: 1.5;
   }
+
+ @media (max-width: 600px) {
+    .stages {
+      flex-direction: column;
+      border-radius: 10px;
+    }
+    .stage::after {
+      display: none;
+    }
+    .note-row {
+      flex-direction: column;
+    }
+  }
 </style>
 </head>
 <body>

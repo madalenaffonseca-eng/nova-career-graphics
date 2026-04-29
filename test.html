@@ -117,12 +117,6 @@
     line-height: 1.5;
   }
 
- .note-text {
-    font-size: 13px;
-    color: #555;
-    line-height: 1.5;
-  }
-
   @media (max-width: 600px) {
     .stages {
       flex-direction: column;
@@ -180,5 +174,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  function resizeIframe() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+</script>
 </body>
 </html>

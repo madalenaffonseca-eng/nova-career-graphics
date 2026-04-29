@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graphic 3 — Decision Framework</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .frame-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+  }
+
+  .frame-sub {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .axis-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 6px 36px;
+    font-size: 10px;
+    color: #bbb;
+  }
+
+  .quadrant-wrap {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: 1fr 32px;
+    gap: 4px;
+    height: 320px;
+  }
+
+  .y-axis-label {
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .y-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px;
+    font-weight: 600;
+    color: #bbb;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .quadrants {
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .q {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .q1 { background: #D4007F; }
+  .q2 { background: #fce6f3; }
+  .q3 { background: #fce6f3; }
+  .q4 { background: #f5f5f5; }
+
+  .q-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .q1 .q-label { color: rgba(255,255,255,0.6); }
+  .q2 .q-label, .q3 .q-label { color: #D4007F; }
+  .q4 .q-label { color: #aaa; }
+
+  .q-title {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .q1 .q-title { color: #fff; }
+  .q2 .q-title, .q3 .q-title { color: #000; }
+  .q4 .q-title { color: #888; }
+
+  .q-desc {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-top: 2px;
+  }
+
+  .q1 .q-desc { color: rgba(255,255,255,0.8); }
+  .q2 .q-desc, .q3 .q-desc { color: #555; }
+  .q4 .q-desc { color: #aaa; }
+
+  .q-action {
+    margin-top: auto;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 5px;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  .q1 .q-action { background: rgba(255,255,255,0.2); color: #fff; }
+  .q2 .q-action { background: #D4007F; color: #fff; }
+  .q3 .q-action { background: #D4007F; color: #fff; }
+  .q4 .q-action { background: #e0e0e0; color: #888; }
+
+  .x-axis-wrap {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .x-text {
+    font-size: 10px;
+    font-weight: 600;
+    color: #bbb;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .quadrant-wrap { height: auto; grid-template-columns: 1fr; grid-template-rows: auto; }
+    .y-axis-label { display: none; }
+    .quadrants { grid-column: 1; grid-template-columns: 1fr 1fr; }
+    .x-axis-wrap { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame-title">Where does this option sit for you?</div>
+<div class="frame-sub">Use this to pressure-test a career direction before committing significant time to applications.</div>
+
+<div class="axis-top">
+  <span>← Low clarity on what I want</span>
+  <span>High clarity on what I want →</span>
+</div>
+
+<div class="quadrant-wrap">
+  <div class="y-axis-label">
+    <span class="y-text">Fit with my skills &amp; interests</span>
+  </div>
+
+  <div class="quadrants">
+    <div class="q q1">
+      <span class="q-label">Top left</span>
+      <span class="q-title">Strong fit, unclear direction</span>
+      <span class="q-desc">You're drawn to this area but haven't committed to a specific path within it.</span>
+      <span class="q-action">→ Explore and narrow</span>
+    </div>
+    <div class="q q2">
+      <span class="q-label">Top right</span>
+      <span class="q-title">Ready to apply</span>
+      <span class="q-desc">You know what you want and why. Your strengths align well. Focus your energy here.</span>
+      <span class="q-action">→ Build your application</span>
+    </div>
+    <div class="q q3">
+      <span class="q-label">Bottom left</span>
+      <span class="q-title">Uncertain on both</span>
+      <span class="q-desc">You're not sure about fit or direction. Spend time in career exploration first.</span>
+      <span class="q-action">→ Start with exploration</span>
+    </div>
+    <div class="q q4">
+      <span class="q-label">Bottom right</span>
+      <span class="q-title">Clear direction, weak fit</span>
+      <span class="q-desc">You know the path but it doesn't play to your strengths. Worth examining the motivation.</span>
+      <span class="q-action">→ Talk to an adviser</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function resizeIframe() {
+    var height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', resizeIframe);
+  window.addEventListener('resize', resizeIframe);
+</script>
+</body>
+</html>
